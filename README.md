@@ -10,6 +10,12 @@
     <li>Hubungkan project dengan database</li>
     <ul>
         <li>Buka file .env</li>
-        Jika file env tidak ada, gunakan <code>.env.example</code> hapus bagian <em>.example</em>
+        Jika file env tidak ada, gunakan <code>.env.example</code> hapus bagian <code>.example</code>
+        <li>hubungkan dengan database yang anda gunakan</li>
+        <li>Tambahkan <code>FILESYSTEM_DRIVER=public</code> pada file .env untuk mengatur storage yang digunakan</li>
+        <li>Ganti juga code : <code>APP_NAME=Laravel</code>. Ganti <strong>Laravel</strong> dengan nama aplikasi yang anda mau.
     </ul>
+    <li>Lakukan migrasi dengan : <code>php artisan migrate</code> atau <code>php artisan migrate:fresh</code></li>
+    <li>Lakukan seeder untuk mengisi database dengan : <code>php artisan db:seed</code></li>
+    <li>Aplikasi landing page anda siap digunakan</li>
 </ul>
