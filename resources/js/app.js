@@ -21,6 +21,17 @@ window.Vue = require('vue').default;
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+// halaman landing-page
+Vue.component('header-component', require('./components/landingpage/HeaderComponent.vue').default);
+Vue.component('jumbotron-component', require('./components/landingpage/JumbotronComponent.vue').default);
+Vue.component('fitur-component', require('./components/landingpage/FiturComponent.vue').default);
+Vue.component('store-component', require('./components/landingpage/StoreComponent.vue').default);
+Vue.component('detil-fiture', require('./components/landingpage/DetilFiture.vue').default);
+Vue.component('daftar-download', require('./components/landingpage/DaftarDownload.vue').default);
+Vue.component('about-us', require('./components/landingpage/AboutUs.vue').default);
+Vue.component('carier-component', require('./components/landingpage/CarierComponent.vue').default);
+Vue.component('footer-component', require('./components/landingpage/FooterComponent.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

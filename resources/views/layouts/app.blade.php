@@ -18,13 +18,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('css')
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Gas') }} Dashboard
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -32,10 +33,19 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
+                    @Auth
+                    <ul class="navbar-nav mx-auto text-dark fw-bold">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">Tentang Gas</a>
+                        </li>
+                        {{-- <li class="nav-item">
+                            <a class="nav-link" href="/fitur">Fitur</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/carier">Karir</a>
+                        </li> --}}
                     </ul>
-
+                    @endauth
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
@@ -79,5 +89,6 @@
             @yield('content')
         </main>
     </div>
+    @yield('script')
 </body>
 </html>
