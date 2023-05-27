@@ -123,7 +123,7 @@ class AboutSettingController extends Controller
         $jumbotrons = Jumbotron::where('status', 1)->get()[0];
         $jumbotrons->title = $request->title;
         $jumbotrons->description = $request->description;
-        $setting->update();
+        $jumbotrons->update();
         // update data contact
         $contact = Contact::all();
         foreach ($contact as $key => $value) {
@@ -137,6 +137,12 @@ class AboutSettingController extends Controller
                 $value->update();
             }
         }
+        // daftar dan download
+        $daftarDownload = Daftar_download::all()[0];
+        $daftarDownload->title_daftar = $request->title_daftar;
+        $daftarDownload->title_download = $request->title_download;
+        $daftarDownload->update();
+
 
         return back();
     }
