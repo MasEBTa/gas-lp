@@ -17,6 +17,7 @@
         :color-secondary="'red'"
         :fitur-popular="{{ json_encode($fiturs) }}"
         :base-asset="'{{ asset('storage') }}'"
+        id="fitur"
     ></fitur-component>
     <!-- ./fitur popular -->
 
@@ -24,7 +25,6 @@
     <store-component
         :store-type="{{ json_encode($stores) }}"
         :base-asset="'{{ asset('storage') }}'"
-        id="fitur"
     ></store-component>
     <!-- ./store-type -->
 

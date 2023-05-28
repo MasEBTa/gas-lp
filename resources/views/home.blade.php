@@ -14,10 +14,47 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{session('api_token')}}
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+    var apiToken = '{{ session('api_token') }}'; // Retrieve the token from the session
+
+    axios.get('/api/check-token', {
+    headers: {
+        'Authorization': 'Bearer ' + apiToken
+    }
+    })
+    .then(function(response) {
+        // Token otentikasi valid
+        console.log(response);
+        axios.get('/api/data/fitur', {
+            headers: {
+                'Authorization': 'Bearer ' + apiToken,
+                'Accept': 'application/json'
+            }
+        })
+        .then(function(response) {
+            // Handle response data
+            console.log(response);
+        })
+        .catch(function(error) {
+            // Handle error
+            console.error(error);
+        });
+    })
+    .catch(function(error) {
+        // Token otentikasi tidak valid atau tidak ada
+        console.error(response);
+    });
+});
+
+</script>
 @endsection

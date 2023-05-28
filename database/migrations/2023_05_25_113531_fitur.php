@@ -15,6 +15,7 @@ class Fitur extends Migration
     {
         Schema::create('fitures', function (Blueprint $table) {
             $table->id();
+            $table->integer('urutan');
             $table->string('picture_name');
             $table->string('logo_name');
             $table->string('title');

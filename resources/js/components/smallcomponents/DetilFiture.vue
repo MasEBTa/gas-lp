@@ -126,7 +126,7 @@ export default {
   },
   mounted() {
     this.fillData();
-    console.log(this.countData);
+    // console.log(this.countData);
   }
 };
 </script>

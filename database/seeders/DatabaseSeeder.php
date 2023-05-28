@@ -52,6 +52,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Kami menyediakan mesin kasir yang terintegrasi dengan berbagai sistem.',
             'popular' => 1,
             'status' => 1,
+            'urutan' => 1,
         ]);
         Fitur::create([
             'logo_name' => 'png-transparent-paper-barcode-scanners-escaner-book-angle-text-cartoon.png',
@@ -60,6 +61,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Kami menyediakan barcode scanner yang terintegrasi dengan berbagai sistem.',
             'popular' => 1,
             'status' => 1,
+            'urutan' => 2,
         ]);
         Fitur::create([
             'logo_name' => 'pngtree-cartoon-hand-drawn-food-delivery-boy-image_2298186-removebg-preview.png',
@@ -68,6 +70,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Kami menyediakan barcode scanner yang terintegrasi dengan berbagai sistem.',
             'popular' => 1,
             'status' => 1,
+            'urutan' => 3,
         ]);
         Fitur::create([
             'logo_name' => 'download-removebg-preview.png',
@@ -76,6 +79,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Sistem Kami memudahan anda melakukan stock opname.',
             'popular' => 1,
             'status' => 1,
+            'urutan' => 4,
         ]);
         Fitur::create([
             'logo_name' => '61fEVszhFQL._AC_UF1000_1000_QL80_-removebg-preview.png',
@@ -84,6 +88,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Printermal yang siap anda gunakan untuk mencetak nota.',
             'popular' => 1,
             'status' => 1,
+            'urutan' => 5,
         ]);
         Fitur::create([
             'logo_name' => 'download__1_-removebg-preview.png',
@@ -92,6 +97,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Aplikasi gas akan memmbantu anda memantau stok tokomu dan memperluas costomer.',
             'popular' => 0,
             'status' => 1,
+            'urutan' => 6,
         ]);
         Store_category::create([
             'pic_name' => 'download (3).jpeg',

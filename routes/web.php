@@ -14,11 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', function () {
+        $laravelSession = request()->cookie('laravel_session');
+        $try = 'tyr';
+
+        return view('home', compact('laravelSession', 'try'));
         return view('home');
     });
+    // About
     Route::get('/about', [App\Http\Controllers\AboutSettingController::class, 'index']);
     Route::post('/about', [App\Http\Controllers\AboutSettingController::class, 'update']);
     Route::post('/update-image', [App\Http\Controllers\AboutSettingController::class, 'image']);
+    // fitur
+    Route::get('/fiture', [App\Http\Controllers\FitureController::class, 'index']);
+    Route::put('/fiture/naik', [App\Http\Controllers\FitureController::class, 'up']);
 });
 
 Auth::routes();

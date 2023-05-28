@@ -2,17 +2,18 @@
   <div :style="{ backgroundColor: colorBody || 'rgb(248, 248, 248)' }">
     <div class="container pt-5 pb-5">
       <div class="text">
-        <h1>Kategory Toko</h1>
-        <p>Apapun jenis tokomu dapat bergabung bersama Gas</p>
+        <h1>Popular Fitur</h1>
+        <p>Nikmati berbagai fitur menarik yang kami berikan</p>
       </div>
       <div class="card-cover">
-        <div class="row" :class="{ 'centered': jumlah < 4 }">
-          <div v-for="store in stores" :key="store.id" class="col-md-3">
-            <div class="card">
+        <div class="row" :class="{ 'centered': fitures.length < 4 }">
+          <div v-for="fitur in fitures" :key="fitur.id" class="col-md-3">
+            <div class="card" @mouseover="hoverColor = colorSecondary" @mouseleave="hoverColor = null" :style="cardHoverStyle">
               <div class="image-wrapper">
-                <img :src="baseAsset+'/'+store.pic_name" alt="">
+                <div class="circle-background"></div>
+                <img :src="baseAsset+'/'+fitur.logo_name" alt="">
               </div>
-              <p>{{ store.name }}</p>
+              <p>{{ fitur.title }}</p>
             </div>
           </div>
         </div>
@@ -77,8 +78,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -87,10 +88,27 @@
   flex-wrap: nowrap;
 }
 
-.card img {
+.circle-background {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  border-radius: 50%;
+  background-color: #f2f2f2; /* Ganti dengan warna yang sesuai */
+  opacity: 0.5;
+  transition: background-color 0.3s;
+}
+
+.card:hover .circle-background {
+  background-color: var(--hoverColor); /* Ganti dengan warna yang diinginkan saat hover */
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
   display: block;
+  border-radius: 50%;
   object-fit: cover;
 }
 
@@ -101,23 +119,31 @@
 
 <script>
 export default {
-  props: ['colorBody', 'storeType', 'baseAsset'],
+  props: ['colorBody', 'colorSecondary', 'fiturPopular', 'baseAsset'],
   data() {
     return {
       hoverColor: null,
-      stores: []
+      fitures: []
     };
   },
   computed: {
-    jumlah() {
-      return this.stores.length;
+    cardHoverStyle() {
+      return {
+        '--hoverColor': this.hoverColor
+      };
     }
   },
   created() {
-    this.stores = this.storeType;
+    if (this.fiturPopular instanceof Promise) {
+      this.fiturPopular.then(result => {
+        this.fitures = result;
+      });
+    } else {
+      this.fitures = this.fiturPopular;
+    }
   },
   mounted() {
-    console.log(this.jumlah);
+    // console.log(this.fitures);
   },
 };
 </script>
